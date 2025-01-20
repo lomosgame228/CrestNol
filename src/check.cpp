@@ -1,4 +1,5 @@
 #include "algoritm.h"
+#include <algorithm>
 
 bool check(Board &object)
 {
@@ -60,5 +61,93 @@ bool check(Board &object)
       }
     }
   }
+
+  // check diagonal (working progress...)
+  // this | for 0 0
+  int counter = 0;
+  for (int i = 0; i < object.row; i++) {
+    for (int j = i; j < i + 1; j++) {
+      if (object.board[i][j] == "x") {
+        counter++;
+      }
+    }
+  }
+  if (counter == object.row) {
+    for (int i = 0; i < object.row; i++) {
+      for (int j = i; j < i + 1; j++) {
+        object.board[i][j] = "G";
+      }
+    }
+    std::cout << "crest win\n";
+    return true;
+  } else {
+    counter = 0;
+  }
+
+  for (int i = 0; i < object.row; i++) {
+    for (int j = i; j < i + 1; j++) {
+      if (object.board[i][j] == "o") {
+        counter++;
+      }
+    }
+  }
+  if (counter == object.row) {
+    for (int i = 0; i < object.row; i++) {
+      for (int j = i; j < i + 1; j++) {
+        object.board[i][j] = "G";
+      }
+    }
+    std::cout << "nol win\n";
+    return true;
+  } else {
+    counter = 0;
+  }
+  // this for 0 2
+  counter = 0;
+  for (int i = 0; i < object.row; i++) {
+    for (int j = object.row - (i + 1); j < object.row - i; j++) {
+      if (object.board[i][j] == "x") {
+        counter++;
+        std::cout << "counter : " << counter;
+      }
+    }
+  }
+
+  if (counter == object.row) {
+    for (int i = 0; i < object.row; i++) {
+      for (int j = object.row - (i + 1); j < object.row - i; j++) {
+        object.board[i][j] = "G";
+        std::cout << "g suc";
+      }
+    }
+    std::cout << "crest win\n";
+    return true;
+
+  } else {
+    counter = 0;
+  }
+
+  counter = 0;
+  for (int i = 0; i < object.row; i++) {
+    for (int j = object.row - (i + 1); j < object.row - i; j++) {
+      if (object.board[i][j] == "o") {
+        counter++;
+      }
+    }
+  }
+
+  if (counter == object.row) {
+    for (int i = 0; i < object.row; i++) {
+      for (int j = object.row - (i + 1); j < object.row - i; j++) {
+        object.board[i][j] = "G";
+      }
+    }
+    std::cout << "nol win\n";
+    return true;
+
+  } else {
+    counter = 0;
+  }
+
   return 0;
 }

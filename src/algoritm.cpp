@@ -16,7 +16,7 @@ Board::Board(int row, int col)
   }
 }
 
-int algoritm(int why_player, std::string player,int boardrow, int boardcol)
+int algoritm(int why_player, std::string player, int boardrow, int boardcol)
 {
   int counter = 0;
   Board b(boardrow, boardcol);
@@ -27,8 +27,9 @@ int algoritm(int why_player, std::string player,int boardrow, int boardcol)
     int row = 1, col = 1;
     std::cout << "choose your numbers: ";
     std::cin >> row >> col;
-    
-    if ((row > 0 and row <= boardrow) and (col > 0 and col <= boardcol) and b.checkarr(row - 1, col - 1) == true) {
+
+    if ((row > 0 and row <= boardrow) and (col > 0 and col <= boardcol)
+        and b.checkarr(row - 1, col - 1) == true) {
       system("clear");
       b.fillarr(row - 1, col - 1, player);
       if (player == "x") {
@@ -45,6 +46,6 @@ int algoritm(int why_player, std::string player,int boardrow, int boardcol)
       std::cout << "invalid row or col\n";
     }
   }
-  b.printarray();
+  b.printarray(); // end of game
   return 0;
 }

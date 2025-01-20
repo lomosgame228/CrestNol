@@ -12,13 +12,14 @@ class Board
   int row;
 
   friend bool check(Board &object);
+
   public:
   Board(int row, int col);
-  bool checkarr(int row,int col){
-    if (board[row][col] == "x" or board[row][col] == "o"){
+  bool checkarr(int row, int col)
+  {
+    if (board[row][col] == "x" or board[row][col] == "o") {
       return false;
-    }
-    else{
+    } else {
       return true;
     }
   }
@@ -40,7 +41,6 @@ class Board
   }
   void fillarr(int index, int index1, std::string charorstring)
   {
-    
     this->board[index][index1] = charorstring;
   }
 };

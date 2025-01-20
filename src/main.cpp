@@ -18,13 +18,19 @@ int main(int number_argument, char *argument[])
       std::cin >> row;
       std::cout << "choose board col: ";
       std::cin >> col;
-      algoritm(1, "x",row,col);
+      if (row != col) {
+        std::cout << "this mode so buggy... use the same digits.\n";
+      }
+      algoritm(1, "x", row, col);
     } else if (strcmp(argument[1], "2") == 0) {
       std::cout << "choose board row: ";
       std::cin >> row;
       std::cout << "choose board col: ";
       std::cin >> col;
-      algoritm(1, "o",row,col);
+      if (row != col) {
+        std::cout << "this mode so buggy... use the same digits.\n";
+      }
+      algoritm(1, "o", row, col);
     }
   }
 }
