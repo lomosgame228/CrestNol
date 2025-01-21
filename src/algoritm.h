@@ -1,17 +1,27 @@
 #pragma once
+#include <fstream>
 #include <iostream>
 #include <string.h>
 #include <string>
-class Board;
-int algoritm(int why_player, std::string player, int boardrow, int boardcol);
-bool check(Board &object);
+
+std::string filecheck(std::string *c, std::string *n);
+class Board; // for check()
+int algoritm(int why_player,
+             std::string player,
+             int boardrow,
+             int boardcol,
+             std::string &crest,
+             std::string &nolik);
+
+bool check(Board &object, std::string &crest, std::string &nolik);
+
 class Board
 {
   std::string **board;
   int col;
   int row;
 
-  friend bool check(Board &object);
+  friend bool check(Board &object, std::string &crest, std::string &nolik);
 
   public:
   Board(int row, int col);

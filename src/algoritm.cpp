@@ -16,11 +16,11 @@ Board::Board(int row, int col)
   }
 }
 
-int algoritm(int why_player, std::string player, int boardrow, int boardcol)
+int algoritm(int why_player, std::string player, int boardrow, int boardcol, std::string &crest, std::string &nolik)
 {
   int counter = 0;
   Board b(boardrow, boardcol);
-  while (check(b) == false and counter != boardcol * boardrow) {
+  while (check(b,crest,nolik) == false and counter != boardcol * boardrow) {
     std::cout << std::endl;
     b.printarray();
     std::cout << "player " << why_player << " number: ";
@@ -32,12 +32,12 @@ int algoritm(int why_player, std::string player, int boardrow, int boardcol)
         and b.checkarr(row - 1, col - 1) == true) {
       system("clear");
       b.fillarr(row - 1, col - 1, player);
-      if (player == "x") {
-        player = "o";
+      if (player == crest) {
+        player = nolik;
         counter++;
         why_player = 2;
-      } else if (player == "o") {
-        player = "x";
+      } else if (player == nolik) {
+        player = crest;
         counter++;
         why_player = 1;
       }

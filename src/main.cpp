@@ -1,4 +1,5 @@
 #include "algoritm.h"
+#include <fstream>
 
 void help()
 {
@@ -9,7 +10,9 @@ int main(int number_argument, char *argument[])
 {
   int col;
   int row;
-  if (argument[1] != 0) {
+  std::string crestik = "", nolik = "";
+
+  if (argument[1] != 0 and filecheck(&crestik, &nolik) != "") {
     if (strcmp(argument[1], "--help") == 0 or strcmp(argument[1], "-help") == 0
         or strcmp(argument[1], "-h") == 0 or strcmp(argument[1], "--h") == 0) {
       help();
@@ -21,7 +24,7 @@ int main(int number_argument, char *argument[])
       if (row != col) {
         std::cout << "this mode so buggy... use the same digits.\n";
       }
-      algoritm(1, "x", row, col);
+      algoritm(1, crestik, row, col,crestik,nolik);
     } else if (strcmp(argument[1], "2") == 0) {
       std::cout << "choose board row: ";
       std::cin >> row;
@@ -30,7 +33,7 @@ int main(int number_argument, char *argument[])
       if (row != col) {
         std::cout << "this mode so buggy... use the same digits.\n";
       }
-      algoritm(1, "o", row, col);
+      algoritm(1, nolik, row, col,crestik,nolik);
     }
   }
 }
