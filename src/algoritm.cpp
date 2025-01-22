@@ -11,16 +11,16 @@ Board::Board(int row, int col)
   }
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < col; j++) {
-      board[i][j] = "-";
+      board[i][j] = "-"  ;
     }
   }
 }
 
-int algoritm(int why_player, std::string player, int boardrow, int boardcol, std::string &crest, std::string &nolik)
+int algoritm(int why_player, std::string player, int boardrow, int boardcol, std::string &crest, std::string &nolik,std::string &ifwin)
 {
   int counter = 0;
   Board b(boardrow, boardcol);
-  while (check(b,crest,nolik) == false and counter != boardcol * boardrow) {
+  while (check(b,crest,nolik,ifwin) == false and counter != boardcol * boardrow) {
     std::cout << std::endl;
     b.printarray();
     std::cout << "player " << why_player << " number: ";

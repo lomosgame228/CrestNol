@@ -1,7 +1,7 @@
 #include "algoritm.h"
 #include <algorithm>
 
-bool check(Board &object,std::string &crest, std::string &nolik)
+bool check(Board &object,std::string &crest, std::string &nolik,std::string &ifwin)
 {
 
   // check horizontal
@@ -14,7 +14,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
       if (counter == object.row) {
         std::cout << "crest win\n";
         for (int k = 0; k < object.col; k++) {
-          object.board[i][k] = "G";
+          object.board[i][k] = ifwin;
         }
         return true;
       }
@@ -27,7 +27,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
       if (counter == object.row) {
         std::cout << "nol win\n";
         for (int k = 0; k < object.col; k++) {
-          object.board[i][k] = "G";
+          object.board[i][k] = ifwin;
         }
         return true;
       }
@@ -43,7 +43,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
       if (counter == object.col) {
         std::cout << "crest win\n";
         for (int k = 0; k < object.row; k++) {
-          object.board[k][j] = "G";
+          object.board[k][j] = ifwin;
         }
         return true;
       }
@@ -56,7 +56,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
       if (counter == object.col) {
         std::cout << "nol win\n";
         for (int k = 0; k < object.row; k++) {
-          object.board[k][j] = "G";
+          object.board[k][j] = ifwin;
         }
         return true;
       }
@@ -76,7 +76,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
   if (counter == object.row) {
     for (int i = 0; i < object.row; i++) {
       for (int j = i; j < i + 1; j++) {
-        object.board[i][j] = "G";
+        object.board[i][j] = ifwin;
       }
     }
     std::cout << "crest win\n";
@@ -95,7 +95,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
   if (counter == object.row) {
     for (int i = 0; i < object.row; i++) {
       for (int j = i; j < i + 1; j++) {
-        object.board[i][j] = "G";
+        object.board[i][j] = ifwin;
       }
     }
     std::cout << "nol win\n";
@@ -116,7 +116,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
   if (counter == object.row) {
     for (int i = 0; i < object.row; i++) {
       for (int j = object.row - (i + 1); j < object.row - i; j++) {
-        object.board[i][j] = "G";
+        object.board[i][j] = ifwin;
       }
     }
     std::cout << "crest win\n";
@@ -138,7 +138,7 @@ bool check(Board &object,std::string &crest, std::string &nolik)
   if (counter == object.row) {
     for (int i = 0; i < object.row; i++) {
       for (int j = object.row - (i + 1); j < object.row - i; j++) {
-        object.board[i][j] = "G";
+        object.board[i][j] = ifwin;
       }
     }
     std::cout << "nol win\n";

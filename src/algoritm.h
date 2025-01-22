@@ -4,16 +4,16 @@
 #include <string.h>
 #include <string>
 
-std::string filecheck(std::string *c, std::string *n);
 class Board; // for check()
+std::string filecheck(std::string *c, std::string *n,std::string *ifwin,std::string *notcrestornol);
 int algoritm(int why_player,
              std::string player,
              int boardrow,
              int boardcol,
              std::string &crest,
-             std::string &nolik);
+             std::string &nolik,std::string &ifwin);
 
-bool check(Board &object, std::string &crest, std::string &nolik);
+bool check(Board &object,std::string &crest, std::string &nolik,std::string &ifwin);
 
 class Board
 {
@@ -21,7 +21,7 @@ class Board
   int col;
   int row;
 
-  friend bool check(Board &object, std::string &crest, std::string &nolik);
+  friend bool check(Board &object,std::string &crest, std::string &nolik,std::string &ifwin);
 
   public:
   Board(int row, int col);
