@@ -3,6 +3,9 @@
 
 Board::Board(int row, int col)
 {
+  std::string notcrestornol;
+  std::string a,b,c,d;
+  filecheck(&a,&b,&c,&notcrestornol);
   this->col = col;
   this->row = row;
   board = new std::string *[row];
@@ -11,7 +14,7 @@ Board::Board(int row, int col)
   }
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < col; j++) {
-      board[i][j] = "-"  ;
+      board[i][j] = notcrestornol  ;
     }
   }
 }

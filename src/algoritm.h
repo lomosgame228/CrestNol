@@ -5,6 +5,7 @@
 #include <string>
 
 class Board; // for check()
+extern std::string notcrestornol;
 std::string filecheck(std::string *c, std::string *n,std::string *ifwin,std::string *notcrestornol);
 int algoritm(int why_player,
              std::string player,

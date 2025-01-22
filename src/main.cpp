@@ -10,7 +10,7 @@ int main(int number_argument, char *argument[])
 {
   int col;
   int row;
-  std::string crestik = "", nolik = "", ifwin = "",notcrestornol = "";
+  std::string crestik = "", nolik = "", ifwin = "",notcrestornol;
   if (argument[1] != 0 and filecheck(&crestik, &nolik, &ifwin,&notcrestornol) != "") {
     if (strcmp(argument[1], "--help") == 0 or strcmp(argument[1], "-help") == 0
         or strcmp(argument[1], "-h") == 0 or strcmp(argument[1], "--h") == 0) {
